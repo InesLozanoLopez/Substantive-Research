@@ -1,11 +1,24 @@
+:root{
+  --light-blue: lightblue;
+  --light-brown: #deb887;
+  --grey: grey;
+}
+
+
 body {
-  margin: 0;
+  width: 100%;
+  height: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    background: linear-gradient(
+      to bottom right, 
+      var(--light-blue),
+      var(--light-brown)
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
