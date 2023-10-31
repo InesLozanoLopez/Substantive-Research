@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BiSolidSortAlt } from 'react-icons/bi';
 import './App.css';
 import { fetchDataApi } from './ApiServices';
 import { Isector } from './interfaces';
+import { percentage } from './functions';
 
 function App() {
   const [dataApi, setDataApi] = useState<Isector[]>([]);
   const [ sortedBy, setSortedBy] = useState<string>('');
+  let numInteractions = useRef<number>(0);
 
   useEffect(() => {
     fetchDataApi()
       .then((response: Isector[]) => {
+        numInteractions.current = response.length;
         const updatedData = response.reduce((data, interplay) => {
           const existingSector = data.find((sector) => sector.name === interplay.name);
           if (existingSector) {
@@ -20,7 +23,6 @@ function App() {
           } return data;
         }, [] as Isector[]);
         setDataApi(updatedData)
-
       })
       .catch((error) => {
         console.log('error from App.tsx', error)
@@ -60,7 +62,7 @@ function App() {
             <tr key={item.sector_id}>
               <td>{item.sector_id}</td>
               <td>{item.name}</td>
-              <td>{item.interactions}</td>
+              <td>{percentage(numInteractions.current, item.interactions)} %</td>
             </tr>
           )}
         </tbody>
