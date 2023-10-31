@@ -8,13 +8,13 @@ export const fetchDataApi = async () => {
     })
 
     if(response.data){
-    return response.data
+    return response.data.interactions
     }
     console.log('Error from fetchDataApi', response.status);
-    throw new Error;
-    
+    throw new Error();
+
 }catch(error){
     console.log('Error from apiServices', error);
-    throw error 
+    throw new Error(); 
 }  
 }

@@ -16,8 +16,8 @@ function App() {
         };
       });
       setDataApi(updatedData)
-    }). catch ((error) => {
-
+    })
+    .catch ((error) => {
       console.log('error from App.tsx', error)
     })
   }, [])
