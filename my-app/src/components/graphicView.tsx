@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import { fetchDataApi } from '../ApiServices';
-import { Isector, Ioptions } from '../interfaces';
+import { Isector } from '../interfaces';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 // import './chartjs-extension/DoughnutRoundedController';
@@ -57,10 +57,10 @@ function GraphicView() {
     plugins: {
         legend: {
             display: true,
-            position: 'bottom',
+            position: 'bottom' as const,
             labels: {
                 font:{
-                    size: 10,
+                    size: 12,
                 }
             }
         }
