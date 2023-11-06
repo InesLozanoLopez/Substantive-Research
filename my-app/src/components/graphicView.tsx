@@ -1,33 +1,9 @@
-import { useEffect, useState } from 'react';
 import '../App.css';
-import { fetchDataApi } from '../ApiServices';
 import { Isector } from '../interfaces';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
-// import './chartjs-extension/DoughnutRoundedController';
 
-function GraphicView() {
-  const [dataApi, setDataApi] = useState<Isector[]>([]);
-
-
-  useEffect(() => {
-    fetchDataApi()
-      .then((response: Isector[]) => {
-        const updatedData = response.reduce((data, interplay) => {
-          const existingSector = data.find((sector: Isector) => sector.name === interplay.name);
-          if (existingSector) {
-            existingSector.interactions += 1;
-          } else {
-            data.push({ ...interplay, sector_id: Number(interplay.sector_id), interactions: 1 });
-          } return data;
-        }, [] as Isector[]);
-        setDataApi(updatedData)
-      })
-      .catch(() => {
-        throw new Error();
-      })
-  }, [])
-
+const GraphicView = ({dataApi}: {dataApi: Isector[]}) => {
 
   const data = {
     labels: [
@@ -70,7 +46,6 @@ function GraphicView() {
   return (
     <div className='graphicContainer'>
     <Chart data={data} type={'doughnut'} options={options}/>
-
     </div>
   );
 }

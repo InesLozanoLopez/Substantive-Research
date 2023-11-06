@@ -24,3 +24,9 @@ th, td {
   border: solid var(--grey) 1px;
   padding: 2vw;
 }
+
+.graphicContainer{
+  width: 100%;
+  max-width: 600px;
+  min-width: 30px;
+}
