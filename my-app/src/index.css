@@ -1,26 +1,25 @@
-:root{
+:root {
   --light-blue: lightblue;
   --light-brown: #deb887;
   --grey: grey;
 }
 
-
-body {
+html, body {
   width: 100%;
   height: auto;
+  min-width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 3vw;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    background: linear-gradient(
-      to bottom right, 
+  background: linear-gradient(to bottom right,
       var(--light-blue),
-      var(--light-brown)
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+      var(--light-brown));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

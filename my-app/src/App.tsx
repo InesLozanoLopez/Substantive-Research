@@ -32,15 +32,15 @@ const App = () => {
 
   return (
     <>
-    <h1>Substantive Research</h1>
-
-    <div className='tableContainer'> 
-    <TableView dataApi={dataApi} numberOfInteractions={numberOfInteractions}/>
-    </div>
-    <div className='graphicContainer'>     
-
-    <GraphicView dataApi={dataApi}/>
-    </div>
+      <h1>Substantive Research</h1>
+      <div className='GridContainer'>
+        <div className='tableContainer'>
+          <TableView dataApi={dataApi} numberOfInteractions={numberOfInteractions} />
+        </div>
+        <div className='graphicContainer'>
+          <GraphicView dataApi={dataApi} />
+        </div>
+      </div>
     </>
   );
 }

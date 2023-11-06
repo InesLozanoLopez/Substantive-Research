@@ -1,32 +1,55 @@
-h1{
-  font-size: 6vw;
+h1 {
+  font-size: 3vw;
 }
-.tableContainer{
-  margin: 5vw;
-}
-table {
+
+.GridContainer{
   padding: 4vw;
-  border-collapse: collapse;
-  width: 100%;
+  padding-top: 10px;
+  gap: 5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-columns: 50% 50%;
+}
+
+@media (max-width: 500px) {
+  .GridContainer{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+.tableContainer{
   max-width: 600px;
-  min-width: 30px;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 600px;
+  min-width: 300px;
   text-align: center;
   color: black;
-  font-size: 2vw;
+  font-size: 2.5vw;
   border: solid var(--grey) 1px;
 }
 th{
-  font-size: 2.5vw;
+  font-size: 3vw;
   cursor: pointer;
 }
 
 th, td {
   border: solid var(--grey) 1px;
-  padding: 2vw;
+  padding: 1vw;
 }
 
 .graphicContainer{
-  width: 100%;
+  position: sticky;
+  top: 2vw;
   max-width: 600px;
-  min-width: 30px;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
 }

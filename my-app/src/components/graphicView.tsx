@@ -36,7 +36,7 @@ const GraphicView = ({dataApi}: {dataApi: Isector[]}) => {
             position: 'bottom' as const,
             labels: {
                 font:{
-                    size: 12,
+                    size: 10,
                 }
             }
         }
