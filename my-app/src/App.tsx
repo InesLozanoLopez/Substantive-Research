@@ -4,16 +4,17 @@ import './App.css';
 import { fetchDataApi } from './ApiServices';
 import { Isector } from './interfaces';
 import { percentage } from './functions';
+import GraphicView from './components/graphicView';
 
 function App() {
   const [dataApi, setDataApi] = useState<Isector[]>([]);
   const [ sortedBy, setSortedBy] = useState<string>('');
-  let numInteractions = useRef<number>(0);
+  let numberOfInteractions = useRef<number>(0);
 
   useEffect(() => {
     fetchDataApi()
       .then((response: Isector[]) => {
-        numInteractions.current = response.length;
+        numberOfInteractions.current = response.length;
         const updatedData = response.reduce((data, interplay) => {
           const existingSector = data.find((sector) => sector.name === interplay.name);
           if (existingSector) {
@@ -24,8 +25,8 @@ function App() {
         }, [] as Isector[]);
         setDataApi(updatedData)
       })
-      .catch((error) => {
-        console.log('error from App.tsx', error)
+      .catch(() => {
+        throw new Error();
       })
   }, [])
 
@@ -42,7 +43,8 @@ function App() {
 
   return (
     <div className='tableContainer'>
-      <h1>Substrantive Research</h1>
+      <GraphicView/>
+      <h1>Substantive Research</h1>
       <table>
         <thead>
           <tr>
@@ -62,7 +64,7 @@ function App() {
             <tr key={item.sector_id}>
               <td>{item.sector_id}</td>
               <td>{item.name}</td>
-              <td>{percentage(numInteractions.current, item.interactions)} %</td>
+              <td>{percentage(numberOfInteractions.current, item.interactions)} %</td>
             </tr>
           )}
         </tbody>

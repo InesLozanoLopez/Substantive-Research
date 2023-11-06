@@ -11,6 +11,7 @@
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "axios": "^1.6.0",
+    "chart.js": "^4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-chartjs-2": "^2.5.7"
   }
 }
