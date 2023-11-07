@@ -8,6 +8,7 @@ import TableView from './components/tableView';
 const App = () => {
   const [dataApi, setDataApi] = useState<Isector[]>([]);
   let numberOfInteractions = useRef<number>(0);
+  const [hoveredSector, setHoveredSector] = useState<number | null>(null);
 
 
   useEffect(() => {
@@ -35,10 +36,10 @@ const App = () => {
       <h1>Substantive Research</h1>
       <div className='GridContainer'>
         <div className='tableContainer'>
-          <TableView dataApi={dataApi} numberOfInteractions={numberOfInteractions} />
+          <TableView dataApi={dataApi} numberOfInteractions={numberOfInteractions} setHoveredSector={setHoveredSector}/>
         </div>
         <div className='graphicContainer'>
-          <GraphicView dataApi={dataApi} />
+          <GraphicView dataApi={dataApi} hoveredSector={hoveredSector}/>
         </div>
       </div>
     </>

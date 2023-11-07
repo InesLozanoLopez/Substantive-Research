@@ -4,7 +4,7 @@ import { Isector } from '../interfaces';
 import { BiSolidSortAlt } from 'react-icons/bi';
 import { percentage } from '../functions';
 
-const TableView = ({ dataApi, numberOfInteractions }: { dataApi: Isector[], numberOfInteractions: MutableRefObject<number> }) => {
+const TableView = ({ dataApi, numberOfInteractions, setHoveredSector }: { dataApi: Isector[], numberOfInteractions: MutableRefObject<number>, setHoveredSector: any}) => {
     const [dataView, setDataView] = useState<Isector[]>([]);
     const [sortedBy, setSortedBy] = useState<string>('');
 
@@ -21,6 +21,10 @@ const TableView = ({ dataApi, numberOfInteractions }: { dataApi: Isector[], numb
         }
         setSortedBy(property);
         setDataView(sortedDataApi)
+    }
+
+    const handleRowHover = (sector_id: number | null) => {
+        setHoveredSector(sector_id)
     }
 
     return (
@@ -41,7 +45,9 @@ const TableView = ({ dataApi, numberOfInteractions }: { dataApi: Isector[], numb
                 </thead>
                 <tbody>
                     {dataView.map((item) =>
-                        <tr key={item.sector_id}>
+                        <tr key={item.sector_id}
+                        onMouseEnter={() => handleRowHover(item.sector_id)}
+                        onMouseLeave={() => handleRowHover(null)}>
                             <td>{item.sector_id}</td>
                             <td>{item.name}</td>
                             <td>{percentage(numberOfInteractions.current, item.interactions)} %</td>
