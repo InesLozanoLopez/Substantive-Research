@@ -70,6 +70,7 @@ tr:hover{
   height: fit-content;
 }
 
+/* chart View */
 .chart{
     box-sizing: border-box !important;
     display: block !important;

@@ -2,9 +2,11 @@ import '../App.css';
 import { Isector } from '../interfaces';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
+import { IoPieChartSharp } from 'react-icons/io5';
 
 
-const BarChart = ({ dataApi, backgroundColorArray }: { dataApi: Isector[], backgroundColorArray: string[] }) => {
+
+const BarChart = ({ dataApi, backgroundColorArray, handleChartView }: { dataApi: Isector[], backgroundColorArray: string[] , handleChartView: any}) => {
     const data = {
         labels: [
             ...dataApi.map((sector: Isector) => sector.name)
@@ -52,6 +54,7 @@ const BarChart = ({ dataApi, backgroundColorArray }: { dataApi: Isector[], backg
 
     return (
         <div className='graphic' >
+            <IoPieChartSharp onClick={handleChartView}/>
             <Chart data={data} type={'bar'} options={options} className='chart' />
         </div >
     );

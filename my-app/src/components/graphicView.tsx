@@ -6,9 +6,10 @@ import { getRandomColors } from '../functions';
 import DoughnutChart from './doughnutChart';
 import BarChart from './barChart';
 
-
 const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSector: number | null }) => {
   const [backgroundColorArray, setBackgroundColorArray] = useState<string[]>([]);
+  const [barView, setBarView] = useState<boolean>(true);
+
   const initionalColors = useMemo(() => getRandomColors(dataApi.length), [dataApi]);
 
 
@@ -23,12 +24,20 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
       }
     }
     setBackgroundColorArray(newColors)
-  }, [hoveredSector, dataApi])
+  }, [hoveredSector, dataApi]);
+
+  const handleChartView =() => {
+    setBarView(!barView);
+  }
 
   return (
     <>
-      {/* <DoughnutChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} /> */}
-      <BarChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} />
+      {!barView &&
+      <DoughnutChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} handleChartView={handleChartView} />
+}
+      {barView &&
+      <BarChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} handleChartView={handleChartView} />
+}
     </>
   );
 }

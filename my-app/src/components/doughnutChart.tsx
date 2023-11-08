@@ -2,9 +2,10 @@ import '../App.css';
 import { Isector } from '../interfaces';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
+import { IoBarChartSharp } from 'react-icons/io5';
 
 
-const DoughnutChart = ({ dataApi, backgroundColorArray }: { dataApi: Isector[], backgroundColorArray: string[] }) => {
+const DoughnutChart = ({ dataApi, backgroundColorArray, handleChartView }: { dataApi: Isector[], backgroundColorArray: string[], handleChartView: any }) => {
     const data = {
         labels: [
             ...dataApi.map((sector: Isector) => sector.name)
@@ -39,6 +40,8 @@ const DoughnutChart = ({ dataApi, backgroundColorArray }: { dataApi: Isector[], 
 
     return (
         <div className='graphic' >
+                        <IoBarChartSharp onClick={handleChartView}/>
+
             <Chart data={data} type={'doughnut'} options={options} className='chart' />
         </div >
     );
