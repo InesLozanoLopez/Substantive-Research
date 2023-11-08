@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import '../App.css';
 import { Isector } from '../interfaces';
 import 'chart.js/auto';
-import { Chart } from 'react-chartjs-2';
 import { getRandomColors } from '../functions';
+import DoughnutChart from './doughnutChart';
+import BarChart from './barChart';
 
 
 const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSector: number | null }) => {
@@ -24,42 +25,11 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
     setBackgroundColorArray(newColors)
   }, [hoveredSector, dataApi])
 
-  const data = {
-    labels: [
-      ...dataApi.map((sector: Isector) => sector.name)
-    ],
-    datasets: [{
-      label: 'Substantive Research',
-      data: dataApi.map((sector: Isector) => sector.interactions),
-      backgroundColor: backgroundColorArray,
-      hoverOffset: 1,
-      borderColor: 'var(--dark)'
-    }]
-  };
-
-  const options = {
-    plugins: {
-      legend: {
-        display: true,
-        position: 'bottom' as const,
-        labels: {
-            usePointStyle: true,
-            color: 'var(--dark)',
-            padding: 14,
-            font: {
-              responsive: true,
-              lineHeight: 12,
-            },
-            maintainAspectRatio: true,
-        }
-      }
-    }
-  }
-
-  return(
-    <div className = 'graphic' >
-        <Chart data={data} type={'doughnut'} options={options} className='chart'/>
-    </div >
+  return (
+    <>
+      {/* <DoughnutChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} /> */}
+      <BarChart dataApi={dataApi} backgroundColorArray={backgroundColorArray} />
+    </>
   );
 }
 
