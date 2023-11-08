@@ -3,7 +3,7 @@ import '../App.css';
 import { Isector } from '../interfaces';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
-import { getRandomColors} from '../functions';
+import { getRandomColors } from '../functions';
 
 
 const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSector: number | null }) => {
@@ -16,10 +16,11 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
 
     if (hoveredSector !== null) {
       const sectorIndex = dataApi.findIndex(sector => sector.sector_id === hoveredSector);
-            
+
       if (dataApi[sectorIndex].sector_id === hoveredSector) {
         newColors[sectorIndex] = 'hsl(30, 50%, 50%)';
-    }}
+      }
+    }
     setBackgroundColorArray(newColors)
   }, [hoveredSector, dataApi])
 
@@ -41,18 +42,21 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
         display: true,
         position: 'bottom' as const,
         labels: {
-          font: {
-            size: 10,
-          }
+            usePointStyle: true,
+            font: {
+              responsive: true,
+              lineHeight: 12,
+            },
+            maintainAspectRatio: true,
         }
       }
     }
   }
 
-  return (
-    <div className='graphicContainer'>
-      <Chart data={data} type={'doughnut'} options={options} />
-    </div>
+  return(
+    <div className = 'graphic' >
+        <Chart data={data} type={'doughnut'} options={options} className='chart'/>
+    </div >
   );
 }
 

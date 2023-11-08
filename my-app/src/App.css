@@ -7,7 +7,6 @@ h1 {
   padding-top: 10px;
   gap: 5vw;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-template-columns: 50% 50%;
 }
@@ -24,6 +23,7 @@ h1 {
 .tableContainer{
   max-width: 600px;
   min-width: 300px;
+  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -53,11 +53,26 @@ tr:hover{
   background-color: var(--light-brown);
 }
 
+/*graphic */
+
 .graphicContainer{
-  position: sticky;
-  top: 2vw;
   max-width: 600px;
   min-width: 300px;
+  height: 100vh;
   display: flex;
+  padding-left: 2vw;
   justify-content: center;
+}
+
+.graphic{
+  position: sticky;
+  top: 4vw;
+  height: fit-content;
+}
+
+.chart{
+    box-sizing: border-box !important;
+    display: block !important;
+    height: auto !important;
+    width: 90% !important;
 }
