@@ -18,7 +18,7 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
       const sectorIndex = dataApi.findIndex(sector => sector.sector_id === hoveredSector);
 
       if (dataApi[sectorIndex].sector_id === hoveredSector) {
-        newColors[sectorIndex] = 'hsl(30, 50%, 50%)';
+        newColors[sectorIndex] = '#347AB7'; /* 347AB7 => var(--dark-blue)*/
       }
     }
     setBackgroundColorArray(newColors)
@@ -32,7 +32,8 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
       label: 'Substantive Research',
       data: dataApi.map((sector: Isector) => sector.interactions),
       backgroundColor: backgroundColorArray,
-      hoverOffset: 1
+      hoverOffset: 1,
+      borderColor: 'var(--dark)'
     }]
   };
 
@@ -43,6 +44,8 @@ const GraphicView = ({ dataApi, hoveredSector }: { dataApi: Isector[], hoveredSe
         position: 'bottom' as const,
         labels: {
             usePointStyle: true,
+            color: 'var(--dark)',
+            padding: 14,
             font: {
               responsive: true,
               lineHeight: 12,

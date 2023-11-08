@@ -1,7 +1,7 @@
 :root {
-  --light-blue: lightblue;
-  --light-brown: #deb887;
-  --grey: grey;
+  --light-blue: #E6F7FF;
+  --dark-blue: #347AB7;
+  --dark: black;
 }
 
 html, body {
@@ -19,7 +19,7 @@ body {
     sans-serif;
   background: linear-gradient(to bottom right,
       var(--light-blue),
-      var(--light-brown));
+      var(--dark-blue));
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

@@ -35,22 +35,22 @@ table {
   text-align: center;
   color: black;
   font-size: 2.5vw;
-  border: solid var(--grey) 1px;
+  border: solid var(--dark) 1px;
 }
 
 th{
   font-size: 3vw;
   cursor: pointer;
-  background-color: var(--light-blue);
+  background-color: var(--dark-blue);
   padding: 1vw;
 }
 
 th, td {
-  border: solid var(--grey) 1px;
+  border: solid var(--dark) 2px;
   padding: 1vw;
 }
 tr:hover{
-  background-color: var(--light-brown);
+  background-color: var(--dark-blue);
 }
 
 /*graphic */
