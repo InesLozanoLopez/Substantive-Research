@@ -39,11 +39,14 @@ const DoughnutChart = ({ dataApi, backgroundColorArray, handleChartView }: { dat
     }
 
     return (
-        <div className='graphic' >
-                        <IoBarChartSharp onClick={handleChartView}/>
-
-            <Chart data={data} type={'doughnut'} options={options} className='chart' />
-        </div >
+        <>
+            <div className='graphic' >
+                <div className='changeViewIcon'>
+                    <IoBarChartSharp onClick={handleChartView} />
+                </div>
+                <Chart data={data} type={'doughnut'} options={options} className='chart' />
+            </div >
+        </>
     );
 }
 export default DoughnutChart;

@@ -3,7 +3,7 @@ h1 {
   padding-left: 3vw;
 }
 
-.GridContainer{
+.GridContainer {
   padding: 5vw;
   padding-top: 10px;
   gap: 5vw;
@@ -13,7 +13,7 @@ h1 {
 }
 
 @media (max-width: 500px) {
-  .GridContainer{
+  .GridContainer {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto);
   }
@@ -21,7 +21,7 @@ h1 {
 
 /*table style*/
 
-.tableContainer{
+.tableContainer {
   max-width: 600px;
   min-width: 200px;
   height: auto;
@@ -39,24 +39,26 @@ table {
   border: solid var(--dark) 1px;
 }
 
-th{
+th {
   font-size: 3vw;
   cursor: pointer;
   background-color: var(--dark-blue);
   padding: 1vw;
 }
 
-th, td {
+th,
+td {
   border: solid var(--dark) 2px;
   padding: 1vw;
 }
-tr:hover{
+
+tr:hover {
   background-color: var(--dark-blue);
 }
 
 /*graphic */
 
-.graphicContainer{
+.graphicContainer {
   max-width: 600px;
   min-width: 200px;
   height: 50vh;
@@ -64,16 +66,36 @@ tr:hover{
   justify-content: center;
 }
 
-.graphic{
-  position: sticky;
+.graphic {
+  position: fixed;
   top: 4vw;
   height: fit-content;
 }
 
+.changeViewIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 35vw;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  border: 2px solid var(--dark);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.changeViewIcon svg {
+  width: 60%;
+  height: 60%;
+}
+
 /* chart View */
-.chart{
-    box-sizing: border-box !important;
-    display: block !important;
-    height: auto !important;
-    width: 90% !important;
+.chart {
+  padding-top: 5vw !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  height: auto !important;
+  width: 90% !important;
 }
