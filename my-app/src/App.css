@@ -1,9 +1,10 @@
 h1 {
   font-size: 3vw;
+  padding-left: 3vw;
 }
 
 .GridContainer{
-  padding: 4vw;
+  padding: 5vw;
   padding-top: 10px;
   gap: 5vw;
   display: grid;
@@ -22,7 +23,7 @@ h1 {
 
 .tableContainer{
   max-width: 600px;
-  min-width: 300px;
+  min-width: 200px;
   height: auto;
   display: flex;
   justify-content: center;
@@ -57,10 +58,9 @@ tr:hover{
 
 .graphicContainer{
   max-width: 600px;
-  min-width: 300px;
-  height: 100vh;
+  min-width: 200px;
+  height: 50vh;
   display: flex;
-  padding-left: 2vw;
   justify-content: center;
 }
 
