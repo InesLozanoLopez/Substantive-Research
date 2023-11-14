@@ -10,40 +10,48 @@ const App = () => {
   let numberOfInteractions = useRef<number>(0);
   const [hoveredSector, setHoveredSector] = useState<number | null>(null);
 
-
   useEffect(() => {
     fetchDataApi()
       .then((response: Isector[]) => {
         numberOfInteractions.current = response.length;
         const updatedData = response.reduce((data, interplay) => {
-          const existingSector = data.find((sector) => sector.name === interplay.name);
+          const existingSector = data.find(
+            (sector) => sector.name === interplay.name,
+          );
           if (existingSector) {
             existingSector.interactions += 1;
           } else {
-            data.push({ ...interplay, sector_id: Number(interplay.sector_id), interactions: 1 });
-          } return data;
+            data.push({
+              ...interplay,
+              sector_id: Number(interplay.sector_id),
+              interactions: 1,
+            });
+          }
+          return data;
         }, [] as Isector[]);
-        setDataApi(updatedData)
+        setDataApi(updatedData);
       })
       .catch(() => {
         throw new Error();
-      })
-  }, [])
-
+      });
+  }, []);
 
   return (
     <>
-      <h1>Substantive Research</h1>
-      <div className='GridContainer'>
-        <div className='tableContainer'>
-          <TableView dataApi={dataApi} numberOfInteractions={numberOfInteractions} setHoveredSector={setHoveredSector}/>
+      <div className="GridContainer">
+        <div className="tableContainer">
+          <TableView
+            dataApi={dataApi}
+            numberOfInteractions={numberOfInteractions}
+            setHoveredSector={setHoveredSector}
+          />
         </div>
-        <div className='graphicContainer'>
-          <GraphicView dataApi={dataApi} hoveredSector={hoveredSector}/>
+        <div className="graphicContainer">
+          <GraphicView dataApi={dataApi} hoveredSector={hoveredSector} />
         </div>
       </div>
     </>
   );
-}
+};
 
 export default App;
