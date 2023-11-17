@@ -5,9 +5,9 @@ This app is fetching data from a API, reduce it to interactions per sector and s
 This app is 100% responsive and 100% accessible and works in dark mode.
 
 <div>
-  <img style="padding: 10px; align:center; margin:4px" src="./my-app/public/screenshotPhoneViewDarkMode.png" alt="Phone view on dark mode" width="auto" height="300"/>
-  <img style="padding: 10px; align:center; margin:4px" src="./my-app/public/screenshotDesktopDarkMode.png" alt="Desktop View on dark mode" width="auto" height="300"/>
-  <img style="padding: 10px; align:center; margin:4px" src="./my-app/public/screenshotDesktopViewDarkModeChart.png" alt="Desktop View on dark mode" width="auto" height="300"/>
+  <img style="padding: 20px; align:center; margin:4px" src="./my-app/public/screenshotPhoneViewDarkMode.png" alt="Phone view on dark mode" width="auto" height="300"/>
+  <img style="padding: 20px; align:center; margin:4px" src="./my-app/public/screenshotDesktopDarkMode.png" alt="Desktop View on dark mode" width="auto" height="300"/>
+  <img style="padding: 20px; align:center; margin:4px" src="./my-app/public/screenshotDesktopViewDarkModeChart.png" alt="Desktop View on dark mode" width="auto" height="300"/>
 </div>
 
 
