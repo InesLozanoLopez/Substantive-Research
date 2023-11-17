@@ -32,7 +32,7 @@ const GraphicView = ({
       );
 
       if (dataApi[sectorIndex].sector_id === hoveredSector) {
-        newColors[sectorIndex] = '#347AB7'; /* 347AB7 => var(--dark-blue)*/
+        newColors[sectorIndex] = '#D7B47B'; /* D7B47B => Orange*/
       }
     }
     setBackgroundColorArray(newColors);
